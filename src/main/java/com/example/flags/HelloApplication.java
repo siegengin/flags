@@ -1,23 +1,37 @@
 package com.example.flags;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.image.ImageView;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStage){
+        GridPane pane= new GridPane();
+        pane.setAlignment(Pos.CENTER);
+        pane.setHgap(5);
+        pane.setVgap(5);
+        ImageView imageView1 = new ImageView("/src/main/resources/image/uk.gif");
+        ImageView imageView2 = new ImageView("/src/main/resources/image/ca.gif");
+        ImageView imageView3 = new ImageView("/src/main/resources/image/china.gif");
+        ImageView imageView4 = new ImageView("/src/main/resources/image/us.gif");
+        pane.add(imageView1, 0, 0);
+        pane.add(imageView2, 1, 0);
+        pane.add(imageView3, 0, 1);
+        pane.add(imageView4, 1, 1);
+
+        Scene scene = new Scene(pane);
+        primaryStage.setTitle("ex14_1");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
